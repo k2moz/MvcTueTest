@@ -11,17 +11,36 @@ namespace MvcTueTest.Controllers
 {
     public class HomeController : Controller
     {
+        
         private readonly ILogger<HomeController> _logger;
+        
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
+
         public IActionResult Index()
         {
             return View();
         }
+        
+        
+        public JsonResult GetUser()
+        {
+            
+            Person person = new Person
+            {
+                Id = 2,
+                FirstName = "Bob",
+                LastName = "Tornton"
+            };
+            
+            var result = new JsonResult(person);
+            return result;
+        }
+        
 
         public IActionResult Privacy()
         {
@@ -33,5 +52,7 @@ namespace MvcTueTest.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
     }
 }

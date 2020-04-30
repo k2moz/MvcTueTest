@@ -29,6 +29,7 @@ const router = new VueRouter({
 
 new Vue({
     el: '#app',
+    vuetify : new Vuetify(),
     template: "<div><router-view></router-view></div>",
     router
 })
