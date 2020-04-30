@@ -24,7 +24,24 @@
             <v-btn color="error" v-on:click="GetUser">GetUser</v-btn>
         </v-app-bar>
         <p id="user"></p>
-
+        <!--<v-simple-table fixedHeader="true">-->
+            <!--<template >-->
+                <!--<thead>-->
+                <!--<tr>-->
+                    <!--<th class="text-left">Id</th>-->
+                    <!--<th class="text-left">FirstName</th>-->
+                    <!--<th class="text-left">LastName</th>-->
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--<tbody>-->
+                <!--<tr v-for="item in person" :key="item.id">-->
+                    <!--<td>{{ item.Id }}</td>-->
+                    <!--<td>{{ item.FirstName }}</td>-->
+                    <!--<td>{{ item.LastName }}</td>-->
+                <!--</tr>-->
+                <!--</tbody>-->
+            <!--</template>-->
+        <!--</v-simple-table>-->
         <v-content>
             <div class="my-2 button_docpanelshow">
                 <v-btn color="primary" fab small dark @click="docPanelShow =! docPanelShow">
@@ -46,7 +63,6 @@
 
     export default {
         name: 'App',
-
         components: {
             Panel,
             // ksodd,
@@ -55,6 +71,9 @@
 
         data: () => ({
             docPanelShow: false,
+            person: [
+
+            ]
         }),
         methods: {
             GetUser: () => {
@@ -62,6 +81,19 @@
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
                     if (this.readyState === 4 && this.status === 200) {
+                        debugger;
+                        // person = [
+                        //     {
+                        //         Id : 2,
+                        //         FirstName : "Bob",
+                        //         LastName : "Tornton"
+                        //     },
+                        //     {
+                        //         Id : 1,
+                        //         FirstName : "Sam",
+                        //         LastName : "UitWeeky"
+                        //     }
+                        // ];
                         document.getElementById("user").innerHTML =
                             this.responseText;
                     }
@@ -69,6 +101,9 @@
                 xhttp.open("GET", "https://localhost:5001/Home/GetUser", true);
                 xhttp.send();
             },
+        },
+        props: {
+
         }
 
     };
