@@ -30,14 +30,30 @@ namespace MvcTueTest.Controllers
         public JsonResult GetUser()
         {
             
-            Person person = new Person
+            
+            List<Person> people = new List<Person>();
+            
+            Person sam = new Person
+            {
+                Id = 1,
+                FirstName = "Sam",
+                LastName = "Weetwuicky"
+            };
+            
+            Person bob = new Person
             {
                 Id = 2,
                 FirstName = "Bob",
                 LastName = "Tornton"
             };
             
-            var result = new JsonResult(person);
+            
+            people.Add(sam);
+            people.Add(bob);
+            
+            
+//            var result = new JsonResult(person);
+            var result = new JsonResult(people);
             return result;
         }
         
