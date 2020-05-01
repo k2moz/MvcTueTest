@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using MvcTueTest.Models;
@@ -59,9 +60,7 @@ namespace MvcTueTest.Controllers
             cars.Add(uaz);
             cars.Add(vaz);
             cars.Add(mazda);
-            
-            
-//            var result = new JsonResult(person);
+
             var result = new JsonResult(cars);
             return result;
         }

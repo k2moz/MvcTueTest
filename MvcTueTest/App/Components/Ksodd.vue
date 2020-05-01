@@ -236,6 +236,7 @@
         },
         data () {
             return {
+                
                 ksoddOpen: true,
                 transpModel: false,
                 level: [
@@ -268,6 +269,7 @@
                 },
             }
         },
+
     }
 
 </script>

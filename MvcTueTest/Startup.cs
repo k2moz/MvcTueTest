@@ -12,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using MvcTueTest.Models;
 using Microsoft.EntityFrameworkCore;
+// добавляем ORACLE
+//using Oracle.ManagedDataAccess.Client;
 
 namespace MvcTueTest
 {
@@ -64,6 +66,13 @@ namespace MvcTueTest
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            
+            
+//            
+//            app.Run(async (context) =>
+//            {
+//                string conString = "User Id=P_MDD_DEV;Password=P_MDD_DEV134:Data Source=10.0.3.64:1521/test";
+//            });
             
             
             app.UseHttpsRedirection();

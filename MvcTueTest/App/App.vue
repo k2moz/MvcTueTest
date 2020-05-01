@@ -24,9 +24,8 @@
             <v-btn color="error" v-on:click="peopleTable = !peopleTable">GetUser</v-btn>
             <v-btn color="success" v-on:click="carTable = !carTable">GetCar</v-btn>
         </v-app-bar>
-        <p id="user"></p>
-        <p id="car"></p>
-        <v-simple-table v-if="carTable" dark>
+
+        <v-simple-table dark v-if="carTable">
             <template >
                 <thead>
                 <tr>
@@ -65,29 +64,29 @@
             </template>
         </v-simple-table>
 
-        <!--<v-content>-->
-            <!--<div class="my-2 button_docpanelshow">-->
-                <!--<v-btn color="primary" fab small dark @click="docPanelShow =! docPanelShow">-->
-                    <!--<v-icon>mdi-file-document</v-icon>-->
-                <!--</v-btn>-->
-            <!--</div>-->
+        <v-content>
+            <div class="my-2 button_docpanelshow">
+                <v-btn color="primary" fab small dark @click="docPanelShow =! docPanelShow">
+                    <v-icon>mdi-file-document</v-icon>
+                </v-btn>
+            </div>
 
-            <!--&lt;!&ndash; <tabs v-if="docPanelShow"></tabs> &ndash;&gt;-->
-            <!--<panel v-if="docPanelShow"></panel>-->
-        <!--</v-content>-->
+            <!-- <tabs v-if="docPanelShow"></tabs> -->
+            <panel v-if="docPanelShow"></panel>
+        </v-content>
 
     </v-app>
 </template>
 
 <script>
-    // import Panel from '@/components/Panel'
+    import Panel from '@/components/Panel'
     // import panel from '@/components/ksodd'
     // import tabs from '@/components/tabs'
 
     export default {
         name: 'App',
         components: {
-            // Panel,
+            Panel,
             // ksodd,
             // tabs
         },
@@ -101,16 +100,19 @@
         }),
         
         mounted() {
+            
           fetch("https://localhost:5001/Car/GetCar")
               .then(response => response.json())
               .then((data) => {
                   this.cars = data;
               });
+          
           fetch("https://localhost:5001/Home/GetUser")
               .then(response => response.json())
               .then((data) => {
                   this.people = data;
               });
+          
         },
         
         
@@ -137,6 +139,7 @@
                 $.getJSON(url).done(function (data) {
                     console.log(data);
                 });
+
                 
                 // console.log("GetCar");
                 // var xhttp = new XMLHttpRequest();
@@ -149,8 +152,6 @@
                 // xhttp.open("GET", "https://localhost:5001/Car/GetCar", true);
                 // xhttp.send();
             },
-            
-            
         },
 
     };
