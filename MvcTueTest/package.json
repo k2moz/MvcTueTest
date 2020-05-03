@@ -6,6 +6,7 @@
   "devDependencies": {
     "@types/webpack-env": "^1.13.5",
     "aspnet-webpack": "^2.0.3",
+    "axios": "^0.19.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "css-loader": "^0.25.0",
     "event-source-polyfill": "^0.0.7",

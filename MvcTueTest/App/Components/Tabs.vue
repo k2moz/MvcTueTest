@@ -24,7 +24,6 @@
         <!-- вкладка КСОДД -->
         <v-tab-item>
             <v-card flat>
-                <ksodd v-if="ksoddVisible"></ksodd>
                 <v-card-text>
                     <ksoddtable></ksoddtable>
                 </v-card-text>
@@ -85,9 +84,12 @@
         },
         data () {
             return {
-                ksoddVisible: false
             }
+        },
+        methods: {
         }
+        
+        
     }
 </script>
 

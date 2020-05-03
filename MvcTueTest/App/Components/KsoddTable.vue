@@ -1,5 +1,5 @@
 <template>
-    <v-simple-table>
+    <v-simple-table :fixed-header="fixedHeader">
         <template>
             <thead>
             <tr>
@@ -32,26 +32,47 @@
 </template>
 
 <script>
+    import {AxiosInstance as axios} from "axios";
+
     export default {
         data: () => ({
+            fixedHeader: true,
             ksodds: []
         }),
-        mounted() {
-            fetch("https://localhost:5001/Ksodd/GetKsodd")
-                .then(response => response.json())
-                .then((data) => {
-                    this.ksodds = data;
-                });
+
+
+        mounted: function () {
+            $.getJSON("https://localhost:5001/Ksodd/GetKsodd").done((data) => {
+                this.ksodds = data;
+                console.log(data);
+            });
         },
-        methods: {
-            GetKsodd: () => {
-                console.log("GetKsodd");
-                let url = "https://localhost:5001/Ksodd/GetKsodd";
-                $.getJSON(url).done(function (data) {
-                    console.log(data);
-                });
-            }
-        }
+        
+        
+        // mounted() {
+        //     axios
+        //         .get("https://localhost:5001/Ksodd/GetKsodd")
+        //         .then(response => (this.ksodds = response));
+        //    
+        //     // fetch("https://localhost:5001/Ksodd/GetKsodd")
+        //     //     .then(response => response.json())
+        //     //     .then((data) => {
+        //     //         this.ksodds = data;
+        //     //     });
+        // },
+        
+        
+        
+        
+        // methods: {
+        //     GetKsodd: () => {
+        //         console.log("GetKsodd");
+        //         let url = "https://localhost:5001/Ksodd/GetKsodd";
+        //         $.getJSON(url).done(function (data) {
+        //             console.log(data);
+        //         });
+        //     }
+        // }
         
         
         
