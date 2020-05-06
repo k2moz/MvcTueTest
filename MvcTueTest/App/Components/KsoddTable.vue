@@ -41,9 +41,9 @@
         }),
         
         
-        // created() {
-        //     this.GetKsodd();
-        // },
+        created() {
+            this.GetKsodd();
+        },
 
         // mounted: function () {
         //     $.getJSON("https://localhost:5001/Ksodd/GetKsodd").done((data) => {
