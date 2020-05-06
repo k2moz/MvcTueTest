@@ -23,6 +23,7 @@
             <!--</v-btn>-->
             <v-btn color="error" v-on:click="peopleTable = !peopleTable">GetUser</v-btn>
             <v-btn color="success" v-on:click="carTable = !carTable">GetCar</v-btn>
+            <v-btn color="primary" v-on:click="carTable = !carTable">GetCar</v-btn>
         </v-app-bar>
 
         <v-simple-table dark v-if="carTable">
