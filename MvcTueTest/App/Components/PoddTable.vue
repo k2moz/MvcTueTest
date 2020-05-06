@@ -39,13 +39,26 @@
         data: () => ({
             podds: []
         }),
-
-        mounted: function () {
-            $.getJSON("https://localhost:5001/Podd/GetPodd").done((data) => {
-                this.podds = data;
-                console.log(data);
-            });
+        created () {
+            this.GetPodd();
         },
+        
+        // mounted: 
+        //     function () {
+        //     $.getJSON("https://localhost:5001/Podd/GetPodd").done((data) => {
+        //         this.podds = data;
+        //         console.log(data);
+        //     });
+        // },
+        
+        methods: {
+            GetPodd () {
+                $.getJSON("https://localhost:5001/Podd/GetPodd").done((data) => {
+                    this.podds = data;
+                    console.log(data);
+                });
+            },
+        }
 
     }
 </script>

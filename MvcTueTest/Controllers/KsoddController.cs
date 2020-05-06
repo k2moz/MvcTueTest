@@ -46,11 +46,35 @@ namespace MvcTueTest.Controllers
                 DateRegistration = DateTime.Now,
                 EndDate = new DateTime(2021, 7, 20)
             };
+
+            Ksodd ksodd4 = new Ksodd
+            {
+                Id = 4,
+                Name = "Комплексная схема ОДД",
+                OwnerName = "Администрация всех администраций",
+                NameDeveloper = "Разработчик уровень 80",
+                DateApproval = new DateTime(2020, 7, 20),
+                DateRegistration = DateTime.Now,
+                EndDate = new DateTime(2021, 12, 12)
+            };
+            
+            Ksodd ksodd5 = new Ksodd
+            {
+                Id = 5,
+                Name = "Комплексная схема ОДД 5555",
+                OwnerName = "Администрация всех администраций",
+                NameDeveloper = "Разработчик уровень 80",
+                DateApproval = new DateTime(2020, 7, 20),
+                DateRegistration = DateTime.Now,
+                EndDate = new DateTime(2021, 12, 12)
+            };
             
             
             ksodds.Add(ksodd);
             ksodds.Add(ksodd2);
             ksodds.Add(ksodd3);
+            ksodds.Add(ksodd4);
+            ksodds.Add(ksodd5);
             
 
             var result = new JsonResult(ksodds);

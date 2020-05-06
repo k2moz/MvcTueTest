@@ -24,31 +24,53 @@
                 <td>{{ ksodd.endDate }}</td>
             </tr>
             </tbody>
-            <!--<v-footer fixed width="80%" class="elevation-1" color="#FFFFFF">-->
-                <!--<v-btn class="primary" @click="ksoddVisible =!ksoddVisible">Создать КСОДД</v-btn>-->
-            <!--</v-footer>-->
+            <v-footer fixed width="80%" class="elevation-1" color="#FFFFFF">
+                <v-btn class="primary" @click="GetKsodd">Вернуть json</v-btn>
+            </v-footer>
         </template>
     </v-simple-table>
 </template>
 
 <script>
-    import {AxiosInstance as axios} from "axios";
+    //import {AxiosInstance as axios} from "axios";
 
     export default {
         data: () => ({
             fixedHeader: true,
             ksodds: []
         }),
-
-
-        mounted: function () {
-            $.getJSON("https://localhost:5001/Ksodd/GetKsodd").done((data) => {
-                this.ksodds = data;
-                console.log(data);
-            });
-        },
         
         
+        // created() {
+        //     this.GetKsodd();
+        // },
+
+        // mounted: function () {
+        //     $.getJSON("https://localhost:5001/Ksodd/GetKsodd").done((data) => {
+        //         this.ksodds = data;
+        //         console.log(data);
+        //     });
+        // },
+        
+        methods: {
+            GetKsodd() {
+                $.getJSON("https://localhost:5001/Ksodd/GetKsodd").done((data) => {
+                    this.ksodds = data;
+                    console.log(data);
+                });
+            },
+        }
+        
+        
+        
+        
+        
+        
+        //methods: {
+        //    GetKsodd: () => {
+        //        $.getJSON()
+        //    }
+        //}
         // mounted() {
         //     axios
         //         .get("https://localhost:5001/Ksodd/GetKsodd")
@@ -60,10 +82,6 @@
         //     //         this.ksodds = data;
         //     //     });
         // },
-        
-        
-        
-        
         // methods: {
         //     GetKsodd: () => {
         //         console.log("GetKsodd");

@@ -54,7 +54,7 @@
         background-color: #fff;
         border-color: #e7e7e7;
         height: 80%;
-        width: 80%;
+        width: 100%;
         flex-direction: column;
         z-index: 1;
     }
